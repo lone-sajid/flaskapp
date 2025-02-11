@@ -1,5 +1,5 @@
 # Use the official Python image from the Docker Hub
-FROM python:3.9.6-alpine
+FROM python
 
 # Update pip
 RUN python -m pip install --upgrade pip
