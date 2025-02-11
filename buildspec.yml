@@ -14,7 +14,7 @@ phases:
         - echo $TAG
         - echo $REPOSITORY_URI
         - echo $REPOSITORY_URI:$TAG
-        - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' hello-k8s.yml
+        - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' deploy_chatgpt.yaml
         - $(aws ecr get-login --no-include-email)
         - export KUBECONFIG=$HOME/.kube/config
   build:
