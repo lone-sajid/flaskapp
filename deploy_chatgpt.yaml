@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: flask-app
-          image: sajidlone/ec2flask  # The image built from your Dockerfile (could be from DockerHub or a private registry)
+          image: CONTAINER_IMAGE  # The image built from your Dockerfile (could be from DockerHub or a private registry)
+  # The image built from your Dockerfile (could be from DockerHub or a private registry)
           ports:
             - containerPort: 8080
 ---
