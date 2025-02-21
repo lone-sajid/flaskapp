@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ec2flask-deployment
+spec:
+  replicas: 1  # Set to a higher value if you want more replicas for scaling
+  selector:
+    matchLabels:
+      app: ec2flask
+  template:
+    metadata:
+      labels:
+        app: ec2flask
+    spec:
+      containers:
+      - name: ec2flask-container
+        image: sajidlone/ec2flask:3
+        ports:
+        - containerPort: 8080  # Expose the container on port 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ec2flask-service
+spec:
+  selector:
+    app: ec2flask
+  ports:
+    - protocol: TCP
+      port: 80            # Expose the service on port 80 externally
+      targetPort: 8080     # Forward traffic to port 8080 in the container
+  type: LoadBalancer        # This creates a LoadBalancer to expose the service externally
